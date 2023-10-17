@@ -44,7 +44,7 @@ def deal_card(cards):
   return choice(cards)  
 
 def show_hand(cards):
-  print(cards)
+    print(f"{cards} score: {sum(cards)}")
 
 def show_hidden_hand(cards):
   hidden_cards = cards.copy()
@@ -152,9 +152,9 @@ while play_game == "y":
     else:
       end_computer = True
 
-  print("Computer final hand:")
+  print("\nComputer final hand:")
   show_hand(computer_hand)
-  print(score_player, score_computer)
+  #print(score_player, score_computer)
   print_winner(compare(score_player, score_computer))
   #Hint 14: Ask the user if they want to restart the game. If they answer yes, clear the console and start a new game of blackjack and show the logo from art.py.
   play_game = input("Do you want to restart the game (y/n)? ").lower()
