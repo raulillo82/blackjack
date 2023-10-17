@@ -55,10 +55,10 @@ def show_hidden_hand(cards):
 #and returns the score. 
 #Look up the sum() function to help you do this.
 def calculate_score(hand):
-  score = 0
+  score = sum(hand)
   #Initial sum
-  for card in hand:
-    score += card
+  #for card in hand:
+  #  score += card
   #Check for blackjack
   if score == 21 and len(hand) == 2:
     score = 0
