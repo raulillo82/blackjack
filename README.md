@@ -1,5 +1,5 @@
-#Blackjack
-##Execute:
+# Blackjack
+## Execute:
 `python3 main.py`
-##Test:
+## Test:
 `python3 tests.py`
