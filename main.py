@@ -64,11 +64,9 @@ def calculate_score(hand):
     score = 0
   #Check for aces when over 21
   if score > 21:
-    for card in hand:
-      if card == 11:
-        hand.remove(card)
-        hand.append(1)
-        score -= 10
+      if 11 in hand:
+          hand[hand.index(11)] = 1
+          score -= 10
   return score
 
 #Hint 13: Create a function called compare() and pass in the user_score and computer_score. If the computer and user both have the same score, then it's a draw. If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses. If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins.
