@@ -1,14 +1,7 @@
-############### Blackjack Project #####################
-
-#Difficulty Normal 😎: Use all Hints below to complete the project.
-#Difficulty Hard 🤔: Use only Hints 1, 2, 3 to complete the project.
-#Difficulty Extra Hard 😭: Only use Hints 1 & 2 to complete the project.
-#Difficulty Expert 🤯: Only use Hint 1 to complete the project.
-
 ############### Our Blackjack House Rules #####################
 
-## The deck is unlimited in size. 
-## There are no jokers. 
+## The deck is unlimited in size.
+## There are no jokers.
 ## The Jack/Queen/King all count as 10.
 ## The the Ace can count as 11 or 1.
 ## Use the following list as the deck of cards:
@@ -17,44 +10,40 @@
 ## Cards are not removed from the deck as they are drawn.
 ## The computer is the dealer.
 
-##################### Hints #####################
-
-#Hint 1: Go to this website and try out the Blackjack game: 
-#   https://games.washingtonpost.com/games/blackjack/
-#Then try out the completed Blackjack project here: 
-#   http://blackjack-final.appbrewery.repl.run
-
-#Hint 2: Read this breakdown of program requirements: 
-#   http://listmoz.com/view/6h34DJpvJBFVRlZfJvxF
-#Then try to create your own flowchart for the program.
-
-#Hint 3: Download and read this flow chart I've created: 
-#   https://drive.google.com/uc?export=download&id=1rDkiHCrhaf9eX7u7yjM1qwSuyEk-rPnt
-
-#Hint 4: Create a deal_card() function that uses the List below to *return* a random card.
-#11 is the Ace.
 from random import choice
 from art import logo
 #from replit import clear
 from os import system
 def clear():
+    """Clear the screen
+    """
     system('clear')
 
 def deal_card(cards):
+    """Deals a new card and stores it into 'cards'
+    """
     return choice(cards)  
 
 def show_hand(cards):
+    """Fully show a hand of cards given by 'cards'
+    """
     print(f"{cards} score: {sum(cards)}")
 
 def show_hidden_hand(cards):
+    """Show only the first card of the hand of cards given by 'cards'. The
+    second one will be replaced by an 'X' character
+    """
     hidden_cards = cards.copy()
     hidden_cards[1] = "X"
     print (hidden_cards)
 
-#Hint 6: Create a function called calculate_score() that takes a List of cards as input 
-#and returns the score. 
+#Hint 6: Create a function called calculate_score() that takes a List of cards as input
+#and returns the score.
 #Look up the sum() function to help you do this.
 def calculate_score(hand):
+    """Calculate the score of the hand given by 'hand'. Returns the score,
+    which will be 0 if it's a blackjack
+    """
     score = sum(hand)
     #Initial sum
     #for card in hand:
@@ -71,6 +60,9 @@ def calculate_score(hand):
 
 #Hint 13: Create a function called compare() and pass in the user_score and computer_score. If the computer and user both have the same score, then it's a draw. If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses. If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins.
 def compare(user_score, computer_score):
+    """Compares two scores and returns a winner: 0 if draw, 1 if 'user_score',
+    -1 if 'computer_score'
+    """
     if user_score == computer_score:
         print ("Tie!")
         result = 0
@@ -95,6 +87,8 @@ def compare(user_score, computer_score):
     return result
 
 def print_winner(result):
+    """Prints a humand friendly string showing the winner
+    """
     if result == 0:
         print("It's a draw!")
     elif result == 1:
@@ -108,6 +102,8 @@ def print_winner(result):
 #Hint 9: Call calculate_score(). If the computer or the user has a blackjack (0) or if the user's score is over 21, then the game ends.
 #Hint 5: Deal the user and computer 2 cards each using deal_card() and append().
 def play():
+    """Runs the actual game
+    """
     play_game = "y"
     while play_game == "y":
         user_hand = []
